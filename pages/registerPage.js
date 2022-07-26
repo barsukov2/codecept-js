@@ -3,7 +3,7 @@ const { I } = inject();
 module.exports = {
     fields: {
         firstName: '#FirstName',
-        lastName: '#FirstName',
+        lastName: '#LastName',
         email: '#Email',
         password: '#Password',
         confirmPassword: '#ConfirmPassword',

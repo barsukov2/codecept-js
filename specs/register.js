@@ -7,10 +7,11 @@ Before (({I}) => {
 Scenario('Могу зарегистрироваться', async({ I, registerPage }) => {
     //faker не работает, пока разбираюсь
     const gender = 'male';
-    const firstName = 'QWEasd2';
-    const lastName = 'QWEasd2';
-    const email = 'QWEasd2@mail.com';
-    await registerPage.register(firstName , lastName, email, gender);
+    const firstName = 'QWEasd3';
+    const lastName = 'QWEasd3';
+    const email = 'QWEasd3@mail.com';
+    const password = '123456';
+    await registerPage.register(firstName , lastName, email, password, gender);
     I.see('Your registration completed');
     I.see(email);
 });
