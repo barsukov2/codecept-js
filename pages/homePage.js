@@ -4,7 +4,8 @@ module.exports = {
     navLinks :{
         register: '/register',
         logIn: '/login',
-        cart: '#topcartlink > a > span.cart-qty'
+        cart: '#topcartlink > a > span.cart-qty',
+        recentlyViewedProductsBlock: 'body > div.master-wrapper-page > div.master-wrapper-content > div.master-wrapper-main > div.rightside-3 > div.block.block-recently-viewed-products'
     },
     featuredProducts: {
         laptop: {
