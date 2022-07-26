@@ -30,9 +30,9 @@ module.exports = {
         I.fillField(this.fields.confirmPassword, password);
 
         if (gender == 'male')  {
-            I.checkOption(this.fields.maleGender));
+            I.checkOption(this.fields.maleGender);
         } else {
-            I.checkOption(this.fields.femaleGender));
+            I.checkOption(this.fields.femaleGender);
         }
 
         I.click(this.buttons.register);

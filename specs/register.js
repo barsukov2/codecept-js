@@ -4,8 +4,13 @@ Before (({I}) => {
     I.amOnPage('/register');
 });
 
-Scenario('Могу зарегистрироваться, async({ I, registerPage }) => {
-    await registerPage.register('TestName1', 'TestName2', '123@mail.com', 'male');
-    const name = await currentPage.getProfileName();
-    assert.deepStrictEqual(name, 'demo', 'Имя пользователя не демо');
+Scenario('Могу зарегистрироваться', async({ I, registerPage }) => {
+    //faker не работает, пока разбираюсь
+    const gender = 'male';
+    const firstName = 'QWEasd2';
+    const lastName = 'QWEasd2';
+    const email = 'QWEasd2@mail.com';
+    await registerPage.register(firstName , lastName, email, gender);
+    I.see('Your registration completed');
+    I.see(email);
 });
