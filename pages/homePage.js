@@ -8,8 +8,9 @@ module.exports = {
     },
     featuredProducts: {
         laptop: {
-            selector: 'body > div.master-wrapper-page > div.master-wrapper-content > div.master-wrapper-main > div.center-3 > div > div > div.product-grid.home-page-product-grid > div:nth-child(3) > div > div.details > div.add-info > div.buttons > input',
-            title: '14.1-inch Laptop'
+            addToCartSelector: 'body > div.master-wrapper-page > div.master-wrapper-content > div.master-wrapper-main > div.center-3 > div > div > div.product-grid.home-page-product-grid > div:nth-child(3) > div > div.details > div.add-info > div.buttons > input',
+            title: '14.1-inch Laptop',
+            imgSelector: 'body > div.master-wrapper-page > div.master-wrapper-content > div.master-wrapper-main > div.center-3 > div > div > div.product-grid.home-page-product-grid > div:nth-child(3) > div > div.picture > a > img'
         }
     },
     async addFeaturedProductTocart (selector) {

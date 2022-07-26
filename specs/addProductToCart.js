@@ -5,7 +5,7 @@ Before (({I}) => {
 });
 
 Scenario('Могу lобавить в корзину рекомендуемый продукт - лэптоп', async({ I, homePage }) => {
-    await homePage.addFeaturedProductTocart(homePage.featuredProducts.laptop.selector);
+    await homePage.addFeaturedProductTocart(homePage.featuredProducts.laptop.addToCartSelector);
     I.click(homePage.navLinks.cart);
     I.see(homePage.featuredProducts.laptop.title);
 });
