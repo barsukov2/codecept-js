@@ -1,12 +1,11 @@
-const assert = require ('assert');
 Feature('auth');
+var productTitle = '';
 Before (({I, homePage}) => {
     I.amOnPage('/');
-    I.click(homePage.featuredProducts.laptop.imgSelector);
+    productTitle = homePage.goToRandomFeaturedProduct();
     I.amOnPage('/');
 });
 
 Scenario('После просмотра товара он появляется в блоке Recently viewed', async({ I, homePage }) => {
-    I.see(homePage.featuredProducts.laptop.title, homePage.navLinks.recentlyViewedProductsBlock);
+    homePage.seeProductInRecentlyViewed(productTitle);
 });
-

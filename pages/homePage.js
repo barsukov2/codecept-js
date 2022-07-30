@@ -16,5 +16,26 @@ module.exports = {
     },
     async addFeaturedProductTocart (selector) {
         I.click(selector);
+    },
+
+    async goToRandomFeaturedProduct () {
+        var featuredProductLocators = locate('h2')
+            .withAttr({ class: 'product-title' });
+        var productLinks = await I.grabHTMLFromAll(featuredProductLocators.value);
+
+        var randomProductLink = productLinks[Math.floor(Math.random()*productLinks.length)];
+        var randomProductTitle = randomProductLink.replace(/<[^>]+>/g, '').trim();
+
+        var productLink = randomProductLink.replace(/(<[^>]+=")|(">[^>]+.)/g, '');
+        productLink = productLink.replace(/(\r\n|\n|\r)/gm, "").trim();
+        I.amOnPage(productLink);
+
+        return randomProductTitle;
+    },
+
+    async seeProductInRecentlyViewed (productTitle) {
+        var recentlyViewedProductsBlock = locate('div')
+            .withAttr({ class: 'block block-recently-viewed-products' });
+        I.see(productTitle, recentlyViewedProductsBlock.value);
     }
 }
