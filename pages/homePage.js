@@ -19,23 +19,16 @@ module.exports = {
     },
 
     async goToRandomFeaturedProduct () {
-        var featuredProductLocators = locate('h2')
+        const featuredProductLocators = locate('h2')
             .withAttr({ class: 'product-title' });
-        var productLinks = await I.grabHTMLFromAll(featuredProductLocators.value);
+        const productLinks = await I.grabHTMLFromAll(featuredProductLocators.value);
 
-        var randomProductLink = productLinks[Math.floor(Math.random()*productLinks.length)];
-        var randomProductTitle = randomProductLink.replace(/<[^>]+>/g, '').trim();
+        const randomProductLink = productLinks[Math.floor(Math.random()*productLinks.length)];
+        const randomProductTitle = randomProductLink.replace(/<[^>]+>/g, '').trim();
 
-        var productLink = randomProductLink.replace(/(<[^>]+=")|(">[^>]+.)/g, '');
-        productLink = productLink.replace(/(\r\n|\n|\r)/gm, "").trim();
+        const productLink = randomProductLink.replace(/(<[^>]+=")|(">[^>]+.)|(\r\n|\n|\r)/g, '').trim();
         I.amOnPage(productLink);
 
         return randomProductTitle;
     },
-
-    async seeProductInRecentlyViewed (productTitle) {
-        var recentlyViewedProductsBlock = locate('div')
-            .withAttr({ class: 'block block-recently-viewed-products' });
-        I.see(productTitle, recentlyViewedProductsBlock.value);
-    }
 }
